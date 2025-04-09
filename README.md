@@ -1,142 +1,78 @@
-# Nuxt Docker Starter
+# DevExtreme Dashboard with Tailwind CSS and Pinia
 
-## Docker Setup
+This project demonstrates a modern dashboard application built with Nuxt 3, DevExtreme components, Tailwind CSS, and Pinia for state management.
 
-### Build Docker Image
+## Features
 
-To build the Docker image for production and development
+- **Responsive Layout** - Fully responsive design that works on mobile, tablet, and desktop
+- **DevExtreme Integration** - Utilizes DevExtreme components for data visualization and user interaction
+- **State Management** - Implements Pinia stores for centralized state management
+- **Loading States** - Advanced skeleton loaders for a better loading experience
+- **Custom Styling** - Tailwind CSS styling applied to DevExtreme components
+- **Interactive Charts** - Bar chart, pie chart with tooltips and legends
+- **Data Grid** - Sortable, filterable data grid with pagination
 
-```bash
-docker-compose build
-```
+## Components
 
-To run both production and development
+### Dashboard Layout
+The main dashboard layout organizes the various components into a cohesive interface with responsive grid layouts.
 
-```bash
-docker-compose up
-```
+### KPI Cards
+Displays key performance indicators with trend indicators and value formatting.
 
-### Install packages locally
+### Sales Chart
+Bar chart showing sales data compared to targets, with line and bar visualization.
 
-```bash
-yarn install
-```
+### Traffic Pie Chart
+Pie chart showing traffic source distribution with tooltips and legends.
 
-### Run Development Server
+### Orders Grid
+Interactive data grid showing order data with filtering, sorting, and pagination capabilities.
 
-To run the development server (port 3000):
+### Message Form
+Demo component showing Pinia state management with toast notifications.
 
-```bash
-docker-compose up fdr-development
-```
+## Technical Implementation
 
-### Run Production Server
+### State Management
+The application uses Pinia stores to manage application state:
 
-To run the production server (port 3001):
+- `dashboard.ts` - Manages all dashboard data including KPIs, charts, and grid data
+- `test.ts` - Simple store for demonstrating state management in the message form
 
-```bash
-docker-compose up fdr-production
-```
+### Loading States
+Each component implements skeleton loaders using Tailwind's `animate-pulse` class for improved user experience during data fetching:
 
-> **Note:** To run the latest production server, you must first build the system using the `docker build` command.
+- Skeleton loaders for KPI cards
+- Skeleton loaders for charts
+- Skeleton loaders for data grids
+- Toast notifications for user feedback
 
-### Run the system locally (not recommended)
+### DevExtreme Integration
+The application showcases integration with various DevExtreme components:
 
-```bash
-yarn install
-yarn dev
-```
+- Charts (Bar, Line, Pie)
+- DataGrid with filtering and sorting
+- Text inputs and buttons
+- Toast notifications
 
-> **Note:** Please use yarn
+### Styling
+The project demonstrates how to apply custom Tailwind CSS styling to DevExtreme components:
 
-## Linting Rules
+- Custom button styling
+- Custom card designs
+- Responsive layout adjustments
 
-This project uses ESLint and Prettier for linting and code formatting. Below are the key linting rules and configurations:
+## Getting Started
 
-### ESLint
+### Prerequisites
+- Node.js
+- npm
 
-- **Enforces Code Quality:** Ensures consistent code quality and catches potential errors.
-- **Key Rules:**
-  - No unused variables (`no-unused-vars`).
-  - Consistent use of semicolons (`semi`).
-  - Enforces single quotes for strings (`quotes`).
-  - Disallows `console.log` in production (`no-console`).
+### Installation
+1. Clone the repository: https://github.com/abdur-rakib-rony/Building-DevExtreme-Dashboard.git
+2. Install dependencies
 
-#### Vue-Specific Rules
+## License
 
-- **Template Rules:**
-  - Enforces self-closing tags in templates where possible (`vue/html-self-closing`).
-  - Requires consistent spacing in template attributes (`vue/attribute-hyphenation`).
-- **Script Rules:**
-  - Enforces PascalCase for component names (`vue/component-name-in-template-casing`).
-  - Disallows unused components (`vue/no-unused-components`).
-  - Requires `prop` definitions to have a type (`vue/require-prop-types`).
-
-### Prettier
-
-- **Code Formatting:** Automatically formats code to maintain consistency.
-- **Key Rules:**
-  - Line width: 80 characters.
-  - Use of single quotes.
-  - Trailing commas where valid in ES5 (`es5`).
-  - Tabs for indentation.
-
-### Running Linting
-
-To check for linting errors, run:
-
-```bash
-yarn lint
-```
-
-To automatically fix linting issues, run:
-
-```bash
-yarn lint --fix
-```
-
-> **Note:** Ensure that linting is run before committing code to maintain code quality.
-
-### Writing `.vue` Files
-
-When creating `.vue` files, follow this sequence for better readability and maintainability:
-
-1. **`<script>` Section**:
-
-   - Place the `<script>` section at the top.
-   - Use the `setup` syntax if applicable.
-   - Must define lang="ts"
-   - Define all logic, imports, and reactive data here.
-
-2. **`<template>` Section**:
-
-   - Place the `<template>` section after the `<script>` section.
-   - Use clean and semantic HTML.
-   - Ensure proper indentation and self-closing tags where applicable.
-
-3. **`<style>` Section**:
-   - Place the `<style>` section at the bottom.
-   - Use scoped styles (`<style scoped>`) to avoid global CSS conflicts.
-   - Follow the project's CSS conventions (e.g., BEM, Tailwind, etc.).
-
-### Example `.vue` File
-
-```vue
-<script setup lang="ts">
-// your code here
-</script>
-
-<template>
-  <div class="example-component">
-    <p>{{ message }}</p>
-  </div>
-</template>
-
-<style scoped>
-.example-component {
-  color: blue;
-}
-</style>
-```
-
-> **Note:** Always maintain this sequence to ensure consistency across the project.
+MIT
